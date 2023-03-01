@@ -5,7 +5,7 @@ import AnimalList from './AnimalList.js'
 
 function App() {
   const [animals, setAnimals] = useState([
-    {species: "dog", name: "dog name", dateOfBirth: new Date()},
+    {species: "dog", name: "dog name", dateOfBirth: null},
     {species: "cat", name: "cat name", dateOfBirth: new Date()},
     {species: "horse", name: "horse name", dateOfBirth: new Date()},
     {species: "cow", name: "cow name", dateOfBirth: new Date()},
