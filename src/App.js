@@ -17,11 +17,19 @@ function App() {
       ...animals.slice(animals.indexOf(animal) + 1, animals.length),
     ]);
   };
+  const moveToTop = (index) => {
+    let newAnimals = animals.filter((item, indexOfEl) => indexOfEl !== index);
+    setAnimals([animals[index], ...newAnimals]);
+  };
 
   return (
     <div>
       <h4>List of animals in the zoo:</h4>
-      <AnimalList animals={animals} removeAnimal={removeAnimal} />
+      <AnimalList
+        animals={animals}
+        removeAnimal={removeAnimal}
+        moveToTop={moveToTop}
+      />
     </div>
   );
 }
