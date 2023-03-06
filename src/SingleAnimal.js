@@ -1,12 +1,10 @@
 import React from "react";
 
 export default function SingleAnimal({ animal }) {
-  let birthDay, birthMonth, birthYear;
+  let birthDate;
 
   if (animal.dateOfBirth) {
-    birthDay = animal.dateOfBirth.getUTCDate();
-    birthMonth = animal.dateOfBirth.getUTCMonth();
-    birthYear = animal.dateOfBirth.getUTCFullYear();
+    birthDate = animal.dateOfBirth;
   }
   return (
     <div>
@@ -16,7 +14,7 @@ export default function SingleAnimal({ animal }) {
         Date of birth:
         {!animal.dateOfBirth
           ? " Unknown"
-          : birthDay + "." + birthMonth + "." + birthYear}
+          : " " + birthDate}
       </li>
     </div>
   );
