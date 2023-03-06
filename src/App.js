@@ -3,6 +3,7 @@ import "./App.css";
 import React, { useState, useRef, useReducer } from "react";
 import AnimalList from "./AnimalList.js";
 import { AnimalSector } from "./AnimalSector";
+import { SectorList } from "./SectorList";
 
 function App() {
   const [animals, setAnimals] = useState([
@@ -12,6 +13,7 @@ function App() {
     { species: "bird", name: "bird name", dateOfBirth: "25.11.2020.", sector: "birds" },
     { species: "elephant", name: "elephant name", dateOfBirth: "27.9.2010.", sector: "elephants" }
   ]);
+  const [sectors, setSectors] = useState(["Dogs", "Cats", "Horses", "Birds", "Elephants"]);
   const animalSpeciesRef = useRef();
   const animalNameRef = useRef();
   const animalBDayRef = useRef();
@@ -44,6 +46,12 @@ function App() {
     animalBDayRef.current.value = null;
   }
 
+  const handleCheckAnimals = (sectorsElement) => {
+    let sectorsAllLowerCase = sectorsElement.toLowerCase();
+    let newArray = animals.filter(item => item.sector == sectorsAllLowerCase);
+    alert(JSON.stringify(newArray));
+  }
+
   return (
     <div>
       {/* <form> */}
@@ -64,6 +72,7 @@ function App() {
         removeAnimal={removeAnimal}
         moveToTop={moveToTop}
       />
+      <SectorList sectors={sectors} handleCheckAnimals={handleCheckAnimals}></SectorList>
     </div>
   );
 }
